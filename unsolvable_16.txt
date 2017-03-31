@@ -1,0 +1,109 @@
+Solving circle:
+Using Model 1 and FC
+=======================================================
+FC
+CSP8-Grid unsolved. Has no solutions
+bt_search finished
+Search made 25 variable assignments and pruned 53 variable values
+Solution
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+Using Model 1 and GAC
+=======================================================
+GAC
+CSP8-Grid detected contradiction at root
+CSP8-Grid unsolved. Has no solutions
+bt_search finished
+Search made 0 variable assignments and pruned 51 variable values
+Solution
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+Using Model 2 and FC
+=======================================================
+FC
+CSP8-Grid unsolved. Has no solutions
+bt_search finished
+Search made 25 variable assignments and pruned 43 variable values
+Solution
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+Using Model 3 and FC
+=======================================================
+FC
+CSP8-Grid unsolved. Has no solutions
+bt_search finished
+Search made 25 variable assignments and pruned 53 variable values
+Solution
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+Using Model 3 and GAC
+=======================================================
+GAC
+CSP8-Grid detected contradiction at root
+CSP8-Grid unsolved. Has no solutions
+bt_search finished
+Search made 0 variable assignments and pruned 51 variable values
+Solution
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+Using Model 4 and FC
+=======================================================
+FC
+CSP8-Grid unsolved. Has no solutions
+bt_search finished
+Search made 25 variable assignments and pruned 43 variable values
+Solution
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+Using Model 4 and GAC
+=======================================================
+GAC
+CSP8-Grid detected contradiction at root
+CSP8-Grid unsolved. Has no solutions
+bt_search finished
+Search made 0 variable assignments and pruned 51 variable values
+Solution
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
+[None, None, None, None]
