@@ -2,7 +2,8 @@ import time
 import functools
 import itertools
 
-'''Constraint Satisfaction Routines
+'''Referenced from Assignment 2.
+   Constraint Satisfaction Routines
    A) class Variable
 
       This class allows one to define CSP variables.
@@ -233,7 +234,7 @@ class Constraint:
            constraints "satisfies" function.  Note the list of values
            are must be ordered in the same order as the list of
            variables in the constraints scope'''
-        return sat_function(*vals)
+        return self.sat_function(*vals)
 
     def get_n_unasgn(self):
         '''return the number of unassigned variables in the constraint's scope'''
@@ -261,7 +262,7 @@ class Constraint:
         domains_for_each = []
         for var_in_scope in self.scope:
             if var is not var_in_scope:
-                domains_for_each.append(var_in_scope.cur_domain)
+                domains_for_each.append(var_in_scope.cur_domain())
             else:
                 domains_for_each.append([val])
         for t in itertools.product(*domains_for_each):

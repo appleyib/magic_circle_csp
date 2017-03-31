@@ -9,21 +9,21 @@ from cspbase import *
 import itertools
 import numpy as np
 
-def sum_69?(*nums):
+def sum_69(*nums):
     '''Determines if the sum of input values are
     69.
     '''
     np_nums=np.array(nums)
     return (np.sum(np_nums) == 69)
 
-def sum_138?(*nums):
+def sum_138(*nums):
     '''Determines if the sum of input values are
     138.
     '''
     np_nums=np.array(nums)
     return (np.sum(np_nums) == 138) 
 
-def n-diff(*nums):
+def n_diff(*nums):
     '''Determines if each number in input is different from
     each other.
     '''
@@ -39,7 +39,7 @@ def initialization(initial_matrix):
     # stores the input of the first n rows of the grid
     n_grid = initial_matrix
     # stores all values that has already been assigned in each
-    # row in the input tenner grid
+    # row in the input matrix
     fixed = []
     # stored all variables
     all_vars = []
@@ -54,7 +54,7 @@ def initialization(initial_matrix):
     dom_for_all.remove(9)
 
     # sets all values that has already been assigned in each
-    # row in the input tenner grid
+    # row in the input matrix
     for i in range(len(n_grid)):
       for j in range(len(n_grid[i])):
         # Such a cell has already been pre-assigned.
@@ -97,6 +97,7 @@ def add_binary_ndiff_constrains(all_vars):
             (all_vars[i],all_vars[j]))
           constrain.add_sat_func(lambda x,y:x!=y)
           constrains.append(constrain)
+    return constrains
 
 def add_n_ary_ndiff_constrains(all_vars):
     '''Returns a list of binary constrains that describes the
@@ -108,8 +109,9 @@ def add_n_ary_ndiff_constrains(all_vars):
     constrain = Constraint(
         "C_diff",
         all_vars)
-    constrain.add_sat_func(lambda x,y:x!=y)
+    constrain.add_sat_func(n_diff)
     constrains.append(constrain)
+    return constrains
 
 def add_sum_constrains(vars_grid):
     '''Returns a list of n-ary constrains that describes the Yang Hui
@@ -117,21 +119,21 @@ def add_sum_constrains(vars_grid):
     '''
     #  sets n-ary constrains that every row's sum is 69
     constrains = []
-    for i in range(vars_grid):
+    for i in range(len(vars_grid)):
         constrain = Constraint(
           "row_sum %d".format(i+1),
           vars_grid[i])
-        constrain.add_sat_func(sum_69?)
+        constrain.add_sat_func(sum_69)
         constrains.append(constrain)
 
     # gets the transpose of vars_grid
-    vars_grid_transpose = zip(*vars_grid)
+    vars_grid_transpose = list(zip(*vars_grid))
     # sets n-ary constrains that every column's sum is 138
-    for i in range(len(vars_grid_transpose)):
+    for i in range(len(vars_grid[0])):
         constrain = Constraint(
           "column_sum %d".format(i+1),
           vars_grid_transpose[i])
-        constrain.add_sat_func(sum_138?)
+        constrain.add_sat_func(sum_138)
         constrains.append(constrain)
     return constrains
 
@@ -153,13 +155,14 @@ def magic_circle_model_1(initial_matrix):
          .
          [  ] ]
        This function implements the model that using binary constrains
-       for n-differnet.
+       for n-differnet and we add n-dff cons before row and columns sum
+       cons.
     '''
 
     # initializes the variables
-    vars_grid, all_vars = initialization(initial_tenner_board)
+    vars_grid, all_vars = initialization(initial_matrix)
     constrains = add_binary_ndiff_constrains(all_vars)
-    constrains += add_sum_constrains(vars_grid)
+    constrains = constrains + add_sum_constrains(vars_grid)
 
     csp = CSP("{}-Grid".format(len(vars_grid)),all_vars)
     for constrain in constrains:
@@ -183,13 +186,79 @@ def magic_circle_model_2(initial_matrix):
          .
          [  ] ]
        This function implements the model that using n-ary constrains
-       for n-differnet.
+       for n-differnet and we add n-dff cons before row and columns sum
+       cons.
     '''
 
     # initializes the variables
-    vars_grid, all_vars = initialization(initial_tenner_board)
+    vars_grid, all_vars = initialization(initial_matrix)
     constrains = add_n_ary_ndiff_constrains(all_vars)
-    constrains += add_sum_constrains(vars_grid)
+    constrains = constrains + add_sum_constrains(vars_grid)
+
+    csp = CSP("{}-Grid".format(len(vars_grid)),all_vars)
+    for constrain in constrains:
+        csp.add_constraint(constrain)
+
+    return csp, vars_grid
+
+def magic_circle_model_3(initial_matrix):
+    '''Return a CSP object representing a magic circle CSP problem along 
+       with an array of variables for the problem. That is return
+
+       magic_csp, variable_array
+
+       where magic_csp is a csp representing magic concentric circle
+       using model_2 and variable_array is a 8*4 matrix 
+
+       [ [  ]
+         [  ]
+         .
+         .
+         .
+         [  ] ]
+       This function implements the model that using binary constrains
+       for n-differnet and we add row and columns sum
+       cons  before n-dff cons.
+    '''
+
+    # initializes the variables
+    vars_grid, all_vars = initialization(initial_matrix)
+
+    constrains = add_sum_constrains(vars_grid)
+    constrains += add_binary_ndiff_constrains(all_vars)
+    
+
+    csp = CSP("{}-Grid".format(len(vars_grid)),all_vars)
+    for constrain in constrains:
+        csp.add_constraint(constrain)
+
+    return csp, vars_grid
+
+def magic_circle_model_4(initial_matrix):
+    '''Return a CSP object representing a magic circle CSP problem along 
+       with an array of variables for the problem. That is return
+
+       magic_csp, variable_array
+
+       where magic_csp is a csp representing magic concentric circle
+       using model_2 and variable_array is a 8*4 matrix 
+
+       [ [  ]
+         [  ]
+         .
+         .
+         .
+         [  ] ]
+       This function implements the model that using n-ary constrains
+       for n-differnet and we add row and columns sum
+       cons  before n-dff cons.
+    '''
+
+    # initializes the variables
+    vars_grid, all_vars = initialization(initial_matrix)
+
+    constrains = add_sum_constrains(vars_grid)
+    constrains += add_n_ary_ndiff_constrains(all_vars)
 
     csp = CSP("{}-Grid".format(len(vars_grid)),all_vars)
     for constrain in constrains:

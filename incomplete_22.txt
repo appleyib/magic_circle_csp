@@ -1,0 +1,21 @@
+Solving circle:
+Using Model 1 and FC
+=======================================================
+FC
+CSP 8-Grid solved. CPU Time used = 0.08940500000000007
+CSP 8-Grid  Assignments = 
+Var--Grid 0 0  =  1     Var--Grid 0 1  =  25     Var--Grid 0 2  =  11     Var--Grid 0 3  =  32     Var--Grid 1 0  =  33     Var--Grid 1 1  =  3     Var--Grid 1 2  =  5     Var--Grid 1 3  =  28     Var--Grid 2 0  =  27     Var--Grid 2 1  =  7     Var--Grid 2 2  =  23     Var--Grid 2 3  =  12     Var--Grid 3 0  =  14     Var--Grid 3 1  =  24     Var--Grid 3 2  =  29     Var--Grid 3 3  =  2     Var--Grid 4 0  =  8     Var--Grid 4 1  =  22     Var--Grid 4 2  =  21     Var--Grid 4 3  =  18     Var--Grid 5 0  =  31     Var--Grid 5 1  =  15     Var--Grid 5 2  =  17     Var--Grid 5 3  =  6     Var--Grid 6 0  =  4     Var--Grid 6 1  =  16     Var--Grid 6 2  =  19     Var--Grid 6 3  =  30     Var--Grid 7 0  =  20     Var--Grid 7 1  =  26     Var--Grid 7 2  =  13     Var--Grid 7 3  =  10     
+bt_search finished
+Search made 355 variable assignments and pruned 5176 variable values
+Solution
+[1, 25, 11, 32]
+[33, 3, 5, 28]
+[27, 7, 23, 12]
+[14, 24, 29, 2]
+[8, 22, 21, 18]
+[31, 15, 17, 6]
+[4, 16, 19, 30]
+[20, 26, 13, 10]
+Using Model 2 and FC
+=======================================================
+FC
