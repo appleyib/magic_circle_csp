@@ -1,8 +1,8 @@
 #Look for #IMPLEMENT tags in this file. These tags indicate what has
-#to be implemented to complete the warehouse domain.  
+#to be implemented to complete the warehouse domain.
 
 '''
-Construct and return Tenner Grid CSP models.
+Construct and return magic circle models.
 '''
 
 from cspbase import *
@@ -21,7 +21,7 @@ def sum_138(*nums):
     138.
     '''
     np_nums=np.array(nums)
-    return (np.sum(np_nums) == 138) 
+    return (np.sum(np_nums) == 138)
 
 def n_diff(*nums):
     '''Determines if each number in input is different from
@@ -140,13 +140,13 @@ def add_sum_constrains(vars_grid):
 
 
 def magic_circle_model_1(initial_matrix):
-    '''Return a CSP object representing a magic circle CSP problem along 
+    '''Return a CSP object representing a magic circle CSP problem along
        with an array of variables for the problem. That is return
 
        magic_csp, variable_array
 
        where magic_csp is a csp representing magic concentric circle
-       using model_1 and variable_array is a 8*4 matrix 
+       using model_1 and variable_array is a 8*4 matrix
 
        [ [  ]
          [  ]
@@ -171,13 +171,13 @@ def magic_circle_model_1(initial_matrix):
     return csp, vars_grid
 
 def magic_circle_model_2(initial_matrix):
-    '''Return a CSP object representing a magic circle CSP problem along 
+    '''Return a CSP object representing a magic circle CSP problem along
        with an array of variables for the problem. That is return
 
        magic_csp, variable_array
 
        where magic_csp is a csp representing magic concentric circle
-       using model_2 and variable_array is a 8*4 matrix 
+       using model_2 and variable_array is a 8*4 matrix
 
        [ [  ]
          [  ]
@@ -202,13 +202,13 @@ def magic_circle_model_2(initial_matrix):
     return csp, vars_grid
 
 def magic_circle_model_3(initial_matrix):
-    '''Return a CSP object representing a magic circle CSP problem along 
+    '''Return a CSP object representing a magic circle CSP problem along
        with an array of variables for the problem. That is return
 
        magic_csp, variable_array
 
        where magic_csp is a csp representing magic concentric circle
-       using model_2 and variable_array is a 8*4 matrix 
+       using model_2 and variable_array is a 8*4 matrix
 
        [ [  ]
          [  ]
@@ -226,7 +226,7 @@ def magic_circle_model_3(initial_matrix):
 
     constrains = add_sum_constrains(vars_grid)
     constrains += add_binary_ndiff_constrains(all_vars)
-    
+
 
     csp = CSP("{}-Grid".format(len(vars_grid)),all_vars)
     for constrain in constrains:
@@ -235,13 +235,13 @@ def magic_circle_model_3(initial_matrix):
     return csp, vars_grid
 
 def magic_circle_model_4(initial_matrix):
-    '''Return a CSP object representing a magic circle CSP problem along 
+    '''Return a CSP object representing a magic circle CSP problem along
        with an array of variables for the problem. That is return
 
        magic_csp, variable_array
 
        where magic_csp is a csp representing magic concentric circle
-       using model_2 and variable_array is a 8*4 matrix 
+       using model_2 and variable_array is a 8*4 matrix
 
        [ [  ]
          [  ]
